@@ -12,7 +12,7 @@
 @interface CustomLabelView : UIView
 
 @property (nonatomic,copy ) void (^ReturnSelectLabelTitles)(NSArray*labelTitlesArray);
-
+@property(nonatomic ,copy ) void (^HeightDidChange)(CGFloat viewHeight);
 - (instancetype)initWithTitles:(NSArray*)titles  isSelectMore:(BOOL)isSelectMore;
 
 @end

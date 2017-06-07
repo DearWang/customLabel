@@ -12,7 +12,7 @@ static int selectIndex ;//当前选中的ButtonTag值
 
 #define BTAG       2017527
 #define LabelSpace 15
-#define SpaceTop   100
+#define SpaceTop   15
 #define SWIDTH [UIScreen mainScreen].bounds.size.width
 #define SHEIGHT [UIScreen mainScreen].bounds.size.height
 #define UIColorFromHex(s) [UIColor colorWithRed:(((s & 0xFF0000) >> 16))/255.0 green:(((s &0x00FF00) >>8))/255.0 blue:((s &0x0000FF))/255.0 alpha:1.0]
@@ -110,7 +110,7 @@ static int selectIndex ;//当前选中的ButtonTag值
             
         }else{
             
-            selectButton.backgroundColor = [UIColor yellowColor];
+            selectButton.backgroundColor = UIColorFromHex(0xFF4C4D);
             
             [_selectIndexs addObject:@(selectIndex)];
             [_selectTitls addObject:_labelTitles[selectIndex]];
@@ -126,6 +126,7 @@ static int selectIndex ;//当前选中的ButtonTag值
         
     }else{
         
+        
         UIButton * button = [self viewWithTag:selectIndex];
         
         button.backgroundColor = UIColorFromHex(0xF8F8F8);
@@ -134,13 +135,18 @@ static int selectIndex ;//当前选中的ButtonTag值
         
         if (selectIndex > 0) {
             
+            selectButton.backgroundColor = UIColorFromHex(0xFF4C4D);
+            self.backgroundColor = [UIColor whiteColor];
+            
             if (self.ReturnSelectLabelTitles) {
                 
                 self.ReturnSelectLabelTitles(@[selectButton.titleLabel.text]);
                 
             }
             
+            
         }
+
         
     }
     
